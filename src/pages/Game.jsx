@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { validateWord } from '../services/wordApi';
 
 const TIME_LIMIT = 15;
 
 function Game() {
+    const navigate = useNavigate();
     const [chain, setChain] = useState([]);
     const [score, setScore] = useState(0);
     const [error, setError] = useState('');
@@ -77,27 +79,49 @@ function Game() {
         setInputValue('');
     };
 
+    const handlePlayAgain = () => {
+        setChain([]);
+        setScore(0);
+        setError('');
+        setIsGameOver(false);
+        setInputValue('');
+        setTimeLeft(TIME_LIMIT);
+    };
+
+    const handleGoHome = () => {
+        navigate('/');
+    };
+
     return (
         <div className="game">
-            <h1>Partida en curso</h1>
+            {isGameOver ? (
+                <div className="game-over">
+                    <h2>¡Partida terminada!</h2>
+                    <p>Palabras encadenadas: {chain.length}</p>
+                    <p>Puntaje final: {score}</p>
+                    <button onClick={handlePlayAgain}>Jugar de nuevo</button>
+                    <button onClick={handleGoHome}>Ir al inicio</button>
+                </div>
+            ) : (
+                <>
+                    <h1>Partida en curso</h1>
+                    <p>Tiempo restante: {timeLeft}</p>
 
-            <p>Tiempo restante: {timeLeft}</p>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                        />
+                        <button type="submit">Enviar</button>
+                    </form>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    disabled={isGameOver}
-                />
-                <button type="submit" disabled={isGameOver}>Enviar</button>
-            </form>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-
-            <p>Cadena: {chain.join(', ')}</p>
-            <p>Puntaje: {score}</p>
-            <p>Game over: {isGameOver ? 'sí' : 'no'}</p>
+                    <p>Cadena: {chain.join(', ')}</p>
+                    <p>Puntaje: {score}</p>
+                </>
+            )}
         </div>
     );
 }
