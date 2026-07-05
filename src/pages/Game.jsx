@@ -12,9 +12,10 @@ function Game() {
     const [isGameOver, setIsGameOver] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
+    const [hasStarted, setHasStarted] = useState(false);
 
     useEffect(() => {
-        if (isGameOver) return;
+        if (!hasStarted || isGameOver) return;
 
         if (timeLeft === 0) {
             setIsGameOver(true);
@@ -26,7 +27,7 @@ function Game() {
         }, 1000);
 
         return () => clearTimeout(timeoutId);
-    }, [timeLeft, isGameOver]);
+    }, [timeLeft, isGameOver, hasStarted]);
 
     const submitWord = async (word) => {
         const formattedWord = word.trim();
@@ -71,6 +72,7 @@ function Game() {
         setScore((currentScore) => currentScore + formattedWord.length);
         setError('');
         setTimeLeft(TIME_LIMIT);
+        setHasStarted(true);
     };
 
     const handleSubmit = (e) => {
@@ -86,6 +88,7 @@ function Game() {
         setIsGameOver(false);
         setInputValue('');
         setTimeLeft(TIME_LIMIT);
+        setHasStarted(false);
     };
 
     const handleGoHome = () => {
