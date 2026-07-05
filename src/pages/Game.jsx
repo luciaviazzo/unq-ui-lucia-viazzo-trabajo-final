@@ -14,6 +14,17 @@ function Game() {
             setError('Tenés que escribir una palabra');
             return;
         }
+
+        const alreadyUsed = chain.some(
+            (usedWord) => usedWord.toLowerCase() === formattedWord.toLowerCase()
+        );
+
+        if (alreadyUsed) {
+            setError('Esa palabra ya fue utilizada');
+            return;
+        }
+
+        console.log('Pasó validación de vacío y duplicado:', formattedWord);
     };
 
     const handleSubmit = (e) => {
