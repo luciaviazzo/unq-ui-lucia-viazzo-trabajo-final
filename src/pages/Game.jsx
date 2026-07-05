@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { validateWord } from '../services/wordApi';
 
 function Game() {
-    const [chain, setChain] = useState(['casa']);
+    const [chain, setChain] = useState([]);
     const [score, setScore] = useState(0);
     const [error, setError] = useState('');
     const [isGameOver, setIsGameOver] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
-    const submitWord = (word) => {
+    const submitWord = async (word) => {
         const formattedWord = word.trim();
 
         if (formattedWord === '') {
@@ -34,6 +35,21 @@ function Game() {
                 return;
             }
         }
+
+        try {
+            const wordExists = await validateWord(formattedWord);
+            if (!wordExists) {
+                setError('Esa palabra no existe');
+                return;
+            }
+        } catch {
+            setError('No se pudo validar la palabra, intentá de nuevo');
+            return;
+        }
+
+        setChain((currentChain) => [...currentChain, formattedWord]);
+        setScore((currentScore) => currentScore + formattedWord.length);
+        setError('');
     };
 
     const handleSubmit = (e) => {
