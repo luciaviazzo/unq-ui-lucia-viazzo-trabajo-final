@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { validateWord } from '../services/wordApi';
+
+const TIME_LIMIT = 15;
 
 function Game() {
     const [chain, setChain] = useState([]);
@@ -7,6 +9,22 @@ function Game() {
     const [error, setError] = useState('');
     const [isGameOver, setIsGameOver] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
+
+    useEffect(() => {
+        if (isGameOver) return;
+
+        if (timeLeft === 0) {
+            setIsGameOver(true);
+            return;
+        }
+
+        const timeoutId = setTimeout(() => {
+            setTimeLeft((currentTime) => currentTime - 1);
+        }, 1000);
+
+        return () => clearTimeout(timeoutId);
+    }, [timeLeft, isGameOver]);
 
     const submitWord = async (word) => {
         const formattedWord = word.trim();
@@ -50,6 +68,7 @@ function Game() {
         setChain((currentChain) => [...currentChain, formattedWord]);
         setScore((currentScore) => currentScore + formattedWord.length);
         setError('');
+        setTimeLeft(TIME_LIMIT);
     };
 
     const handleSubmit = (e) => {
@@ -62,13 +81,16 @@ function Game() {
         <div className="game">
             <h1>Partida en curso</h1>
 
+            <p>Tiempo restante: {timeLeft}</p>
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    disabled={isGameOver}
                 />
-                <button type="submit">Enviar</button>
+                <button type="submit" disabled={isGameOver}>Enviar</button>
             </form>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
