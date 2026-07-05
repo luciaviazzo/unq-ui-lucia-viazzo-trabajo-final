@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Game() {
-    const [chain, setChain] = useState([]);
+    const [chain, setChain] = useState(['casa']);
     const [score, setScore] = useState(0);
     const [error, setError] = useState('');
     const [isGameOver, setIsGameOver] = useState(false);
@@ -24,7 +24,16 @@ function Game() {
             return;
         }
 
-        console.log('Pasó validación de vacío y duplicado:', formattedWord);
+        if (chain.length > 0) {
+            const previousWord = chain[chain.length - 1];
+            const expectedLetter = previousWord.slice(-1).toLowerCase();
+            const firstLetter = formattedWord.charAt(0).toLowerCase();
+
+            if (firstLetter !== expectedLetter) {
+                setError(`La palabra debe empezar con "${expectedLetter}"`);
+                return;
+            }
+        }
     };
 
     const handleSubmit = (e) => {
