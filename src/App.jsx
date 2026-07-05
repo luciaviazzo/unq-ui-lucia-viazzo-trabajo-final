@@ -1,10 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Game from './pages/Game';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <h1>Palabras Encadenadas</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
