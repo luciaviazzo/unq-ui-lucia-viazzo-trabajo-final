@@ -1,5 +1,6 @@
 .game {
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -23,23 +24,39 @@
   flex-shrink: 0;
 }
 
+.game__score {
+  background-color: var(--color-violet-bg);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+}
+
 .game__score-label {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  margin: 0 0 2px;
+  font-size: 12px;
+  color: var(--color-violet-text);
+  opacity: 0.8;
+  margin: 0 0 4px;
 }
 
 .game__score-value {
-  font-size: 24px;
+  font-size: clamp(22px, 5vw, 26px);
   font-weight: 500;
   margin: 0;
-  color: var(--color-text);
+  color: var(--color-violet-text);
 }
 
 .game__chain {
   flex: 1;
   min-height: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+}
+
+.game__chain .word-chain {
+  max-height: 100%;
+}
+
+.game .word-input {
+  flex-shrink: 0;
 }
