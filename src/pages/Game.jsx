@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validateWord } from '../services/wordApi';
+import Timer from '../components/Timer';
+import WordChain from '../components/WordChain';
+import WordInput from '../components/WordInput';
+import GameOver from '../components/GameOver';
+import './Game.css';
 
 const TIME_LIMIT = 15;
 
@@ -10,7 +15,6 @@ function Game() {
     const [score, setScore] = useState(0);
     const [error, setError] = useState('');
     const [isGameOver, setIsGameOver] = useState(false);
-    const [inputValue, setInputValue] = useState('');
     const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
     const [hasStarted, setHasStarted] = useState(false);
 
@@ -75,18 +79,11 @@ function Game() {
         setHasStarted(true);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        submitWord(inputValue);
-        setInputValue('');
-    };
-
     const handlePlayAgain = () => {
         setChain([]);
         setScore(0);
         setError('');
         setIsGameOver(false);
-        setInputValue('');
         setTimeLeft(TIME_LIMIT);
         setHasStarted(false);
     };
@@ -95,36 +92,34 @@ function Game() {
         navigate('/');
     };
 
+    if (isGameOver) {
+        return (
+            <div className="game">
+                <GameOver
+                    chain={chain}
+                    score={score}
+                    onPlayAgain={handlePlayAgain}
+                    onGoHome={handleGoHome}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className="game">
-            {isGameOver ? (
-                <div className="game-over">
-                    <h2>¡Partida terminada!</h2>
-                    <p>Palabras encadenadas: {chain.length}</p>
-                    <p>Puntaje final: {score}</p>
-                    <button onClick={handlePlayAgain}>Jugar de nuevo</button>
-                    <button onClick={handleGoHome}>Ir al inicio</button>
+            <div className="game__header">
+                <div className="game__score">
+                    <p className="game__score-label">Puntaje</p>
+                    <p className="game__score-value">{score}</p>
                 </div>
-            ) : (
-                <>
-                    <h1>Partida en curso</h1>
-                    <p>Tiempo restante: {timeLeft}</p>
+                <Timer timeLeft={timeLeft} />
+            </div>
 
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                        />
-                        <button type="submit">Enviar</button>
-                    </form>
+            <div className="game__chain">
+                <WordChain words={chain} />
+            </div>
 
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
-
-                    <p>Cadena: {chain.join(', ')}</p>
-                    <p>Puntaje: {score}</p>
-                </>
-            )}
+            <WordInput onSubmit={submitWord} error={error} />
         </div>
     );
 }

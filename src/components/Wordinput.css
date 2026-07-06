@@ -1,0 +1,27 @@
+.word-input__form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.word-input__field {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem;
+    border: 2px solid var(--color-violet-border);
+    border-radius: var(--radius);
+    font-size: clamp(14px, 3vw, 16px);
+    font-family: var(--font-body);
+}
+
+.word-input__field:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.word-input__error {
+    color: var(--color-pink-text);
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+}

@@ -1,0 +1,39 @@
+.game {
+  height: 100vh;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.game__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.game__score-label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 2px;
+}
+
+.game__score-value {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.game__chain {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}

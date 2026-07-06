@@ -1,0 +1,14 @@
+.title-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 1.75rem;
+}
+
+.title-logo__word {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

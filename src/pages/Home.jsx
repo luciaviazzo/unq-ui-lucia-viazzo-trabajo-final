@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import TitleLogo from '../components/TitleLogo';
+import Button from '../components/Button';
+import './Home.css';
 
 function Home() {
+    const navigate = useNavigate();
+
     return (
         <div className="home">
-            <h1>Palabras Encadenadas</h1>
-            <Link to="/game">Jugar</Link>
+            <TitleLogo />
+
+            <div className="home__rules">
+                <span>15s por palabra</span>
+                <span className="home__dot">·</span>
+                <span>1 punto por letra</span>
+            </div>
+
+            <Button variant="primary" onClick={() => navigate('/game')}>
+                Jugar
+            </Button>
         </div>
     );
 }

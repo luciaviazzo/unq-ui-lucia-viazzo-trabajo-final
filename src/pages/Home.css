@@ -1,0 +1,24 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.home__rules {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 2.25rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+.home .button {
+    min-width: 200px;
+}

@@ -1,0 +1,45 @@
+.timer {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer__svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.timer__track {
+    fill: none;
+    stroke: var(--color-violet-border);
+    stroke-width: 4;
+    opacity: 0.3;
+}
+
+.timer__progress {
+    fill: none;
+    stroke: var(--color-violet-text);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s;
+}
+
+.timer__progress--low {
+    stroke: var(--color-pink-border);
+}
+
+.timer__number {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-violet-text);
+}
+
+.timer__number--low {
+    color: var(--color-pink-text);
+}
