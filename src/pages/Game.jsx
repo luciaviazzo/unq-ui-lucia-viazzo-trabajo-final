@@ -53,12 +53,15 @@ function Game() {
         }
 
         if (chain.length > 0) {
+            const normalize = (str) =>
+                str.normalize('NFD').replace(/[̀-ͯ]/g, '');
+
             const previousWord = chain[chain.length - 1];
-            const expectedLetter = previousWord.slice(-1).toLowerCase();
-            const firstLetter = formattedWord.charAt(0).toLowerCase();
+            const expectedLetter = normalize(previousWord.slice(-1)).toLowerCase();
+            const firstLetter = normalize(formattedWord.charAt(0)).toLowerCase();
 
             if (firstLetter !== expectedLetter) {
-                setError(`La palabra debe empezar con "${expectedLetter}"`);
+                setError(`La palabra debe empezar con "${previousWord.slice(-1).toLowerCase()}"`);
                 return;
             }
         }
