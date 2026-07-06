@@ -1,5 +1,5 @@
 .game {
-  height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -7,6 +7,12 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  .game {
+    padding: 1.25rem 1rem;
+  }
 }
 
 .game__header {

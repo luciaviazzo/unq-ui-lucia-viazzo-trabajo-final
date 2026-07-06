@@ -34,6 +34,8 @@ function Game() {
     }, [timeLeft, isGameOver, hasStarted]);
 
     const submitWord = async (word) => {
+        setHasStarted(true);
+
         const formattedWord = word.trim();
 
         if (formattedWord === '') {
@@ -76,7 +78,6 @@ function Game() {
         setScore((currentScore) => currentScore + formattedWord.length);
         setError('');
         setTimeLeft(TIME_LIMIT);
-        setHasStarted(true);
     };
 
     const handlePlayAgain = () => {
