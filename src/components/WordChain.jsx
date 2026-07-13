@@ -13,24 +13,17 @@ function WordChain({ words }) {
 
     return (
         <div className="word-chain" ref={containerRef}>
-            {words.map((word, wordIndex) => {
-                const nextWordExists = wordIndex < words.length - 1;
-
-                return (
+            {words.map((word, wordIndex) => (
                     <div className="word-chain__word" key={`${word}-${wordIndex}`}>
-                        {word.split('').map((letter, letterIndex) => {
-                            const isFirstLetter = letterIndex === 0;
-                            const isLastLetter = letterIndex === word.length - 1;
-
-                            const highlighted = isLastLetter;
-
-                            return (
-                                <Letter key={letterIndex} letter={letter} highlighted={highlighted} />
-                            );
-                        })}
+                        {word.split('').map((letter, letterIndex) => (
+                            <Letter
+                                key={letterIndex}
+                                letter={letter}
+                                highlighted={letterIndex === word.length - 1}
+                            />
+                        ))}
                     </div>
-                );
-            })}
+                ))}
         </div>
     );
 }

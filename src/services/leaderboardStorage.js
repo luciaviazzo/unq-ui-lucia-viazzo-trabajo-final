@@ -1,8 +1,7 @@
-const STORAGE_KEY = 'palabras-encadenadas-leaderboard';
-const MAX_ENTRIES = 10;
+import { LEADERBOARD_STORAGE_KEY, LEADERBOARD_MAX_ENTRIES } from '../constants';
 
 export function getLeaderboard() {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(LEADERBOARD_STORAGE_KEY);
     return stored ? JSON.parse(stored) : [];
 }
 
@@ -22,7 +21,7 @@ export function saveScore(score, wordCount) {
             }
             return b.wordCount - a.wordCount;
         })
-        .slice(0, MAX_ENTRIES);
+        .slice(0, LEADERBOARD_MAX_ENTRIES);
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedEntries));
+    localStorage.setItem(LEADERBOARD_STORAGE_KEY, JSON.stringify(updatedEntries));
 }

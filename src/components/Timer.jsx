@@ -1,6 +1,7 @@
+import { TIME_LIMIT } from '../constants';
 import './Timer.css';
 
-const TOTAL_TIME = 15;
+const TOTAL_TIME = TIME_LIMIT;
 const RADIUS = 24;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 

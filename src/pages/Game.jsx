@@ -6,9 +6,10 @@ import Timer from '../components/Timer';
 import WordChain from '../components/WordChain';
 import WordInput from '../components/WordInput';
 import GameOver from '../components/GameOver';
+import { TIME_LIMIT } from '../constants';
 import './Game.css';
 
-const TIME_LIMIT = 15;
+const normalize = (str) => str.normalize('NFD').replace(/[̀-ͯ]/g, '');
 
 function Game() {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ function Game() {
         if (isGameOver) {
             saveScore(score, chain.length);
         }
-    }, [isGameOver]);
+    }, [isGameOver, score, chain.length]);
 
     useEffect(() => {
         if (!hasStarted || isGameOver) return;
@@ -50,8 +51,6 @@ function Game() {
     }, [timeLeft, isGameOver, hasStarted]);
 
     const submitWord = async (word) => {
-        setHasStarted(true);
-
         const formattedWord = word.trim();
 
         if (formattedWord === '') {
@@ -69,9 +68,6 @@ function Game() {
         }
 
         if (chain.length > 0) {
-            const normalize = (str) =>
-                str.normalize('NFD').replace(/[̀-ͯ]/g, '');
-
             const previousWord = chain[chain.length - 1];
             const expectedLetter = normalize(previousWord.slice(-1)).toLowerCase();
             const firstLetter = normalize(formattedWord.charAt(0)).toLowerCase();
@@ -93,6 +89,7 @@ function Game() {
             return;
         }
 
+        setHasStarted(true);
         setChain((currentChain) => [...currentChain, formattedWord]);
         setScore((currentScore) => currentScore + formattedWord.length);
         setError('');
