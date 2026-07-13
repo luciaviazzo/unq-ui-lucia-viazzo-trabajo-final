@@ -29,7 +29,3 @@
     color: var(--color-text-muted);
     margin: 0 0 1.5rem;
 }
-
-.not-found__link {
-    text-decoration: none;
-}

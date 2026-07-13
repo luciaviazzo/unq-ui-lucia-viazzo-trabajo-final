@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import './NotFound.css';
 
 function NotFound() {
+    const navigate = useNavigate();
+
     return (
         <div className="not-found">
             <p className="not-found__code">404</p>
@@ -10,9 +12,9 @@ function NotFound() {
             <p className="not-found__text">
                 Revisá la dirección o volvé al inicio para jugar.
             </p>
-            <Link to="/" className="not-found__link">
-                <Button variant="primary">Ir al inicio</Button>
-            </Link>
+            <Button variant="primary" onClick={() => navigate('/')}>
+                Ir al inicio
+            </Button>
         </div>
     );
 }
