@@ -1,6 +1,6 @@
 # Palabras Encadenadas
 
-Trabajo Final Integrador — UNQ UI  
+Trabajo Final Integrador — UNQ UI 1°C 2026
 Lucía Viazzo
 
 ## Instalación
