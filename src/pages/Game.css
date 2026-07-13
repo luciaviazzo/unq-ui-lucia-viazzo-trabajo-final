@@ -25,14 +25,14 @@
 }
 
 .game__score {
-  background-color: var(--color-violet-bg);
+  background-color: var(--color-pink-light);
   border-radius: 12px;
   padding: 0.75rem 1.25rem;
 }
 
 .game__score-label {
   font-size: 12px;
-  color: var(--color-violet-text);
+  color: var(--color-pink-dark);
   opacity: 0.8;
   margin: 0 0 4px;
 }
@@ -41,7 +41,7 @@
   font-size: clamp(22px, 5vw, 26px);
   font-weight: 500;
   margin: 0;
-  color: var(--color-violet-text);
+  color: var(--color-pink-dark);
 }
 
 .game__chain {

@@ -33,13 +33,13 @@
     align-items: center;
     gap: 12px;
     padding: 0.6rem 0.75rem;
-    border-bottom: 1px solid var(--color-violet-bg);
+    border-bottom: 1px solid var(--color-pink-light);
 }
 
 .leaderboard__position {
     font-family: var(--font-mono);
     font-weight: 500;
-    color: var(--color-violet-text);
+    color: var(--color-pink-dark);
     width: 20px;
 }
 

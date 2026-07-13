@@ -18,11 +18,11 @@
 }
 
 .button--secondary {
-    background-color: transparent;
-    border: 0.5px solid var(--color-text-muted);
-    color: var(--color-text);
+    background-color: var(--color-pink-light);
+    border: 1.5px solid var(--color-pink-strong);
+    color: var(--color-pink-strong);
 }
 
 .button--secondary:hover {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: var(--color-pink-mid);
 }

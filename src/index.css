@@ -4,13 +4,10 @@
   --color-text: #2d2d2d;
   --color-text-muted: #6b6b6b;
 
-  --color-violet-bg: #eeedfe;
-  --color-violet-border: #afa9ec;
-  --color-violet-text: #3c3489;
-
-  --color-pink-bg: #fbeaf0;
-  --color-pink-border: #d4537e;
-  --color-pink-text: #72243e;
+  --color-pink-light: #fbeaf0;
+  --color-pink-mid: #f4c0d1;
+  --color-pink-strong: #d4537e;
+  --color-pink-dark: #993556;
 
   --color-accent: #d4537e;
   --color-accent-hover: #b8436a;

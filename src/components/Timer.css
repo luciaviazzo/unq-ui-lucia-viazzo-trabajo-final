@@ -16,30 +16,30 @@
 
 .timer__track {
     fill: none;
-    stroke: var(--color-violet-border);
+    stroke: var(--color-pink-mid);
     stroke-width: 4;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .timer__progress {
     fill: none;
-    stroke: var(--color-violet-text);
+    stroke: var(--color-pink-strong);
     stroke-width: 4;
     stroke-linecap: round;
     transition: stroke-dashoffset 1s linear, stroke 0.3s;
 }
 
 .timer__progress--low {
-    stroke: var(--color-pink-border);
+    stroke: var(--color-pink-dark);
 }
 
 .timer__number {
     font-family: var(--font-mono);
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-violet-text);
+    color: var(--color-pink-dark);
 }
 
 .timer__number--low {
-    color: var(--color-pink-text);
+    color: var(--color-pink-dark);
 }

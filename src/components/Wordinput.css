@@ -8,7 +8,8 @@
     flex: 1;
     min-width: 0;
     padding: 0.6rem;
-    border: 2px solid var(--color-violet-border);
+    border: 1px solid var(--color-pink-mid);
+    box-shadow: 0 1px 4px rgba(212, 83, 126, 0.15);
     border-radius: var(--radius);
     font-size: clamp(14px, 3vw, 16px);
     font-family: var(--font-body);
@@ -17,10 +18,11 @@
 .word-input__field:focus {
     outline: none;
     border-color: var(--color-accent);
+    box-shadow: 0 1px 6px rgba(212, 83, 126, 0.25);
 }
 
 .word-input__error {
-    color: var(--color-pink-text);
+    color: var(--color-pink-dark);
     font-weight: 500;
     font-size: 14px;
     margin: 0;

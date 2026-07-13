@@ -33,29 +33,29 @@
 }
 
 .game-over__stat--pink {
-    background-color: var(--color-pink-bg);
+    background-color: var(--color-pink-light);
 }
 
 .game-over__stat--pink .game-over__stat-label {
-    color: var(--color-pink-text);
+    color: var(--color-pink-dark);
     opacity: 0.8;
 }
 
 .game-over__stat--pink .game-over__stat-value {
-    color: var(--color-pink-text);
+    color: var(--color-pink-dark);
 }
 
 .game-over__stat--violet {
-    background-color: var(--color-violet-bg);
+    background-color: var(--color-pink-strong);
 }
 
 .game-over__stat--violet .game-over__stat-label {
-    color: var(--color-violet-text);
-    opacity: 0.8;
+    color: white;
+    opacity: 0.85;
 }
 
 .game-over__stat--violet .game-over__stat-value {
-    color: var(--color-violet-text);
+    color: white;
 }
 
 .game-over__stat-label {
