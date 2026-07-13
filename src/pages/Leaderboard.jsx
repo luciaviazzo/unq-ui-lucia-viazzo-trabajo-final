@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLeaderboard } from '../services/leaderboardStorage';
+import LeaderboardItem from '../components/LeaderboardItem';
 import Button from '../components/Button';
 import './Leaderboard.css';
 
@@ -21,11 +22,12 @@ function Leaderboard() {
             ) : (
                 <ol className="leaderboard__list">
                     {entries.map((entry, index) => (
-                        <li className="leaderboard__item" key={index}>
-                            <span className="leaderboard__position">{index + 1}</span>
-                            <span className="leaderboard__score">{entry.score} pts</span>
-                            <span className="leaderboard__words">{entry.wordCount} palabras</span>
-                        </li>
+                        <LeaderboardItem
+                            key={index}
+                            position={index + 1}
+                            score={entry.score}
+                            wordCount={entry.wordCount}
+                        />
                     ))}
                 </ol>
             )}
