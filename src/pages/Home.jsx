@@ -16,9 +16,14 @@ function Home() {
                 <span>1 punto por letra</span>
             </div>
 
-            <Button variant="primary" onClick={() => navigate('/game')}>
-                Jugar
-            </Button>
+            <div className="home__buttons">  
+                <Button variant="primary" onClick={() => navigate('/game')}>
+                    Jugar
+                </Button>
+                <Button variant="secondary" onClick={() => navigate('/leaderboard')}> 
+                    Ver mejores puntajes
+                </Button>
+            </div>
         </div>
     );
 }

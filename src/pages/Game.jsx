@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validateWord } from '../services/wordApi';
+import { saveScore } from '../services/leaderboardStorage';
 import Timer from '../components/Timer';
 import WordChain from '../components/WordChain';
 import WordInput from '../components/WordInput';
@@ -17,6 +18,12 @@ function Game() {
     const [isGameOver, setIsGameOver] = useState(false);
     const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
     const [hasStarted, setHasStarted] = useState(false);
+
+    useEffect(() => {
+        if (isGameOver) {
+            saveScore(score, chain.length);
+        }
+    }, [isGameOver]);
 
     useEffect(() => {
         if (!hasStarted || isGameOver) return;

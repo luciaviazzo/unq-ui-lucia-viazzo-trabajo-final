@@ -1,5 +1,5 @@
 .home {
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +19,10 @@
     color: var(--color-text-muted);
 }
 
-.home .button {
-    min-width: 200px;
+.home__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 240px;
 }
