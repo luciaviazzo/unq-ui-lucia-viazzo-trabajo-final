@@ -9,12 +9,12 @@ function TitleLogo() {
         <div className="title-logo">
             <div className="title-logo__word">
                 {word1.split('').map((letter, index) => (
-                    <Letter key={index} letter={letter} />
+                    <Letter key={index} letter={letter} highlighted />
                 ))}
             </div>
             <div className="title-logo__word">
                 {word2.split('').map((letter, index) => (
-                    <Letter key={index} letter={letter} />
+                    <Letter key={index} letter={letter} highlighted />
                 ))}
             </div>
         </div>

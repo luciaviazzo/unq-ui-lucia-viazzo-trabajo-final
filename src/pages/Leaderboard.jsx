@@ -32,7 +32,7 @@ function Leaderboard() {
                 </ol>
             )}
 
-            <Button variant="secondary" onClick={() => navigate('/')}>
+            <Button variant="primary" onClick={() => navigate('/')}>
                 Ir al inicio
             </Button>
         </div>

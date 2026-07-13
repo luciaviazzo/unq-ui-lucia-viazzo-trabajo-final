@@ -3,12 +3,18 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-bottom: 1.75rem;
+    margin-bottom: 5rem;
 }
 
 .title-logo__word {
     display: flex;
     gap: 3px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+}
+
+.title-logo .letter {
+    width: clamp(18px, calc((100vw - 4rem) / 13), 48px);
+    height: clamp(22px, calc((100vw - 4rem) / 11), 54px);
+    font-size: clamp(11px, calc((100vw - 4rem) / 20), 24px);
 }

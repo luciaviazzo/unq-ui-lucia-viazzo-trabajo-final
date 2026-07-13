@@ -20,7 +20,7 @@ function Home() {
                 <Button variant="primary" onClick={() => navigate('/game')}>
                     Jugar
                 </Button>
-                <Button variant="secondary" onClick={() => navigate('/leaderboard')}> 
+                <Button variant="secondary" onClick={() => navigate('/leaderboard')}>
                     Ver mejores puntajes
                 </Button>
             </div>

@@ -6,6 +6,15 @@
     padding: 0.75rem 1.25rem;
     cursor: pointer;
     font-family: var(--font-body);
+    transition: transform 0.15s ease;
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+.button:active {
+    transform: scale(0.97);
 }
 
 .button--primary {
@@ -13,16 +22,8 @@
     color: white;
 }
 
-.button--primary:hover {
-    background-color: var(--color-accent-hover);
-}
-
 .button--secondary {
     background-color: var(--color-pink-light);
     border: 1.5px solid var(--color-pink-strong);
     color: var(--color-pink-strong);
-}
-
-.button--secondary:hover {
-    background-color: var(--color-pink-mid);
 }

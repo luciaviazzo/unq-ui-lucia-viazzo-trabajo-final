@@ -1,12 +1,12 @@
 .word-chain {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
     max-height: 55vh;
     overflow-y: auto;
     padding: 4px 8px;
+    width: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -17,6 +17,6 @@
 
 .word-chain__word {
     display: flex;
-    gap: 2px;
+    gap: 4px;
     flex-shrink: 0;
 }

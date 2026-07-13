@@ -22,9 +22,7 @@ function WordChain({ words }) {
                             const isFirstLetter = letterIndex === 0;
                             const isLastLetter = letterIndex === word.length - 1;
 
-                            const highlighted =
-                                (isFirstLetter && wordIndex > 0) ||
-                                (isLastLetter && nextWordExists);
+                            const highlighted = isLastLetter;
 
                             return (
                                 <Letter key={letterIndex} letter={letter} highlighted={highlighted} />
