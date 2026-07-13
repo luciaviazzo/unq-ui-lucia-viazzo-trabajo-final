@@ -5,8 +5,9 @@
     justify-content: flex-start;
     gap: clamp(0.75rem, 3vh, 1.75rem);
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .game-over .word-chain {
@@ -23,7 +24,7 @@
 
 .game-over__stats {
     display: flex;
-    gap: 12px;
+    gap: 16px;
 }
 
 .game-over__stat {
@@ -79,7 +80,7 @@
 .game-over__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 14px;
     margin-top: auto;
 }
 
