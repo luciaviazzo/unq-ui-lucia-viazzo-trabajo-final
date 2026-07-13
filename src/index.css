@@ -4,7 +4,7 @@
   --color-text: #2d2d2d;
   --color-text-muted: #6b6b6b;
 
-  --color-pink-light: #fbeaf0;
+  --color-pink-light: #fde0ec;
   --color-pink-mid: #f4c0d1;
   --color-pink-strong: #d4537e;
   --color-pink-dark: #993556;
@@ -21,38 +21,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pop {
-  0%   { opacity: 0; transform: scale(0.75); }
-  60%  { transform: scale(1.08); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%       { transform: translateX(-6px); }
-  40%       { transform: translateX(6px); }
-  60%       { transform: translateX(-4px); }
-  80%       { transform: translateX(4px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 body {

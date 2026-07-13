@@ -1,46 +1,39 @@
 .game {
-  animation: fadeIn 0.7s ease;
   height: 100dvh;
   overflow-x: hidden;
   overflow-y: hidden;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: clamp(0.75rem, 2.5vh, 2rem) clamp(0.75rem, 2vw, 1.5rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 400px) {
-  .game {
-    padding: 1.25rem 1rem;
-  }
 }
 
 .game__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
   flex-shrink: 0;
 }
 
 .game__score {
   background-color: var(--color-pink-light);
   border-radius: 12px;
-  padding: 0.75rem 1rem;
+  padding: clamp(0.4rem, 1.2vh, 0.75rem) 1rem;
 }
 
 .game__score-label {
-  font-size: 12px;
+  font-size: clamp(10px, 1.5vh, 12px);
   color: var(--color-pink-dark);
   opacity: 0.8;
-  margin: 0 0 4px;
+  margin: 0 0 2px;
 }
 
 .game__score-value {
-  font-size: clamp(18px, 5vw, 24px);
+  font-size: clamp(16px, 3vh, 24px);
   font-weight: 500;
   margin: 0;
   color: var(--color-pink-dark);
@@ -52,7 +45,7 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
 }
 
 .game__chain .word-chain {

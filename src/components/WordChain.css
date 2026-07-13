@@ -5,6 +5,7 @@
     align-items: center;
     max-height: 55vh;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 4px 8px;
     width: 100%;
     scrollbar-width: none;
@@ -17,7 +18,8 @@
 
 .word-chain__word {
     display: flex;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 2px;
     flex-shrink: 0;
-    animation: slideUp 0.5s ease;
+    justify-content: center;
 }

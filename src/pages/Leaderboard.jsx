@@ -18,7 +18,12 @@ function Leaderboard() {
             <h1 className="leaderboard__title">Mejores puntajes</h1>
 
             {entries.length === 0 ? (
-                <p className="leaderboard__empty">Todavía no hay partidas jugadas</p>
+                <>
+                    <p className="leaderboard__empty">Todavía no hay partidas jugadas</p>
+                    <Button variant="primary" onClick={() => navigate('/game')}>
+                        Jugar
+                    </Button>
+                </>
             ) : (
                 <ol className="leaderboard__list">
                     {entries.map((entry, index) => (
@@ -32,9 +37,11 @@ function Leaderboard() {
                 </ol>
             )}
 
-            <Button variant="primary" onClick={() => navigate('/')}>
-                Ir al inicio
-            </Button>
+            {entries.length > 0 && (
+                <Button variant="primary" onClick={() => navigate('/')}>
+                    Ir al inicio
+                </Button>
+            )}
         </div>
     );
 }
