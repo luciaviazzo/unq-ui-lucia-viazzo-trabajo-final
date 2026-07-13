@@ -1,16 +1,41 @@
-# React + Vite
+# Palabras Encadenadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Trabajo Final Integrador — UNQ UI  
+Lucía Viazzo
 
-Currently, two official plugins are available:
+## ¿De qué trata?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Juego de palabras encadenadas: ingresás palabras válidas en español donde cada una debe comenzar con la última letra de la anterior. Tenés 15 segundos por turno. Cuantas más letras, más puntos.
 
-## React Compiler
+## Instalación
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Requisitos: [Node.js](https://nodejs.org/) (versión 18 o superior)
 
-## Expanding the Oxlint configuration
+```bash
+# Clonar el repositorio
+git clone https://github.com/luciaviazzo/unq-ui-lucia-viazzo-trabajo-final.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+# Entrar al directorio
+cd unq-ui-lucia-viazzo-trabajo-final
+
+# Instalar dependencias
+npm install
+```
+
+## Cómo ejecutarlo localmente
+
+```bash
+npm run dev
+```
+
+Luego abrí [http://localhost:5173](http://localhost:5173) en el navegador.
+
+## Funcionalidades
+
+- Validación de palabras contra el diccionario español (API de la cátedra)
+- Puntaje acumulado (1 punto por letra)
+- Timer de 15 segundos por turno
+- Mensajes de error según el tipo de palabra inválida
+- Leaderboard local con los mejores 10 puntajes
+- Soporte para palabras con tildes
+- Interfaz responsive
