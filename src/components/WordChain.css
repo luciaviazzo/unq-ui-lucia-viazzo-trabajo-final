@@ -19,4 +19,5 @@
     display: flex;
     gap: 4px;
     flex-shrink: 0;
+    animation: slideUp 0.5s ease;
 }

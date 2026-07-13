@@ -30,4 +30,5 @@
     font-weight: 500;
     font-size: 14px;
     margin: 0;
+    animation: shake 0.55s ease;
 }

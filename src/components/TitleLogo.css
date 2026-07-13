@@ -11,6 +11,11 @@
     gap: 3px;
     flex-wrap: nowrap;
     justify-content: center;
+    animation: slideUp 0.8s ease both;
+}
+
+.title-logo__word:nth-child(2) {
+    animation-delay: 0.3s;
 }
 
 .title-logo .letter {

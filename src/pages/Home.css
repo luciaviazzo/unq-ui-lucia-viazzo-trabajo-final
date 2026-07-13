@@ -1,4 +1,5 @@
 .home {
+    animation: fadeIn 0.8s ease;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
