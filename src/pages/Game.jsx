@@ -21,15 +21,6 @@ function Game() {
     const [hasStarted, setHasStarted] = useState(false);
 
     useEffect(() => {
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-        };
-    }, []);
-
-    useEffect(() => {
         if (isGameOver) {
             saveScore(score, chain.length);
         }
